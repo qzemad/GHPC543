@@ -24,6 +24,12 @@
   .ttl{font-weight:600}
   .sub{display:block;font-weight:400;color:var(--muted);font-size:14px;margin-top:2px}
   .go{margin-left:auto;color:var(--muted);font-size:22px}
+  details.part{margin:18px 0 0}
+  details.part>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 4px;border-bottom:1px solid var(--line);font-weight:700;font-size:17px;user-select:none}
+  details.part>summary::-webkit-details-marker{display:none}
+  details.part>summary::before{content:"›";color:var(--c);font-size:22px;line-height:1;width:14px;text-align:center;transition:transform .15s}
+  details.part[open]>summary::before{transform:rotate(90deg)}
+  details.part>summary .range{margin-left:auto;font-weight:400;font-size:14px;color:var(--muted)}
   footer{margin-top:40px;color:var(--muted);font-size:13px}
 </style>
 </head>
@@ -36,7 +42,8 @@
        HOW TO ADD A LECTURE
        1. Upload the student copy to GitHub (e.g. hp-lecture4.html).
        2. Copy ONE block below, from <a class="lec" ...> to </a>,
-          and paste it underneath the last lecture of that course.
+          and paste it underneath the last lecture in the
+          "Final Exam" section (above the "paste the next" comment).
        3. Change three things: the file name in href="...",
           the "Lecture N" number, and the title (and the small subtitle line).
        ===================================================================== -->
@@ -46,36 +53,58 @@
     <h2>Psychopharmacology</h2>
     <p class="code">GHPC 543 · Leonard, <em>Fundamentals of Psychopharmacology</em></p>
 
-    <a class="lec" href="pp-lecture1.html">
-      <span class="num">Lecture 1</span>
-      <span class="ttl">The brain and its messengers<span class="sub">Chapter 1: functional neuroanatomy</span></span>
-      <span class="go">›</span>
-    </a>
+    <!-- MIDTERM: collapsed by default (no "open" attribute) -->
+    <details class="part">
+      <summary>Midterm<span class="range">Lectures 1–5</span></summary>
 
-    <a class="lec" href="pp-lecture2.html">
-      <span class="num">Lecture 2</span>
-      <span class="ttl">Neurons and their messengers<span class="sub">Chapter 2: neurotransmitter function</span></span>
-      <span class="go">›</span>
-    </a>
+      <a class="lec" href="pp-lecture1.html">
+        <span class="num">Lecture 1</span>
+        <span class="ttl">The brain and its messengers<span class="sub">Chapter 1: functional neuroanatomy</span></span>
+        <span class="go">›</span>
+      </a>
 
-    <a class="lec" href="pp-lecture3.html">
-      <span class="num">Lecture 3</span>
-      <span class="ttl">The journey of a drug<span class="sub">Chapter 3: pharmacokinetics</span></span>
-      <span class="go">›</span>
-    </a>
-    
-    <a class="lec" href="pp-lecture4.html">
-      <span class="num">Lecture 4</span>
-      <span class="ttl">Clinical Trials<span class="sub">Chapter 4: The importance of Clinical Trials</span></span>
-      <span class="go">›</span>
-    </a>
+      <a class="lec" href="pp-lecture2.html">
+        <span class="num">Lecture 2</span>
+        <span class="ttl">Neurons and their messengers<span class="sub">Chapter 2: neurotransmitter function</span></span>
+        <span class="go">›</span>
+      </a>
 
-       <a class="lec" href="pp-lecture5.html">
-      <span class="num">Lecture 5</span>
-      <span class="ttl">Genetics and Serotonin<span class="sub">Chapter 5 & 6</span></span>
-      <span class="go">›</span>
-    </a>
-    <!-- paste the next Psychopharmacology lecture here -->
+      <a class="lec" href="pp-lecture3.html">
+        <span class="num">Lecture 3</span>
+        <span class="ttl">The journey of a drug<span class="sub">Chapter 3: pharmacokinetics</span></span>
+        <span class="go">›</span>
+      </a>
+
+      <a class="lec" href="pp-lecture4.html">
+        <span class="num">Lecture 4</span>
+        <span class="ttl">Clinical Trials<span class="sub">Chapter 4: The importance of Clinical Trials</span></span>
+        <span class="go">›</span>
+      </a>
+
+      <a class="lec" href="pp-lecture5.html">
+        <span class="num">Lecture 5</span>
+        <span class="ttl">Genetics and Serotonin<span class="sub">Chapters 5 &amp; 6</span></span>
+        <span class="go">›</span>
+      </a>
+    </details>
+
+    <!-- FINAL EXAM: open by default -->
+    <details class="part" open>
+      <summary>Final Exam<span class="range">Lecture 6 onwards</span></summary>
+
+      <a class="lec" href="pp-lecture6.html">
+        <span class="num">Lecture 6</span>
+        <span class="ttl">Drug treatment of depression<span class="sub">Chapter 7: drug treatment of depression</span></span>
+        <span class="go">›</span>
+      </a>
+
+      <a class="lec" href="pp-lecture7.html">
+        <span class="num">Lecture 7</span>
+        <span class="ttl">Drug treatment of mania · Anxiolytics<span class="sub">Chapters 8 &amp; 9: mania, anxiety and insomnia</span></span>
+        <span class="go">›</span>
+      </a>
+      <!-- paste the next Psychopharmacology lecture here -->
+    </details>
   </section>
 
   <footer>Slides open in your browser. If a page looks blank, open this site in Safari or Chrome rather than a file preview.</footer>
